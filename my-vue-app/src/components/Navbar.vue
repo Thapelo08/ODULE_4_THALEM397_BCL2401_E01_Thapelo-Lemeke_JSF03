@@ -60,7 +60,7 @@
       </div>
       <div v-if="open" class="md:hidden mt-4 bg-pink-500">
         <a href="/" class="block p-2 hover:bg-pink-400">wishlist</a>
-        <a href="./" class="block p-2 hover:bg-pink-400">cart</a>
+        <a href="./" class="block p-2 hover:bg-pink-400"></a>
         <a href="./" class="block p-2 hover:bg-pink-400">
           <svg
             width="32px"
