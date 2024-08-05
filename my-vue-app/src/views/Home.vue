@@ -114,7 +114,3 @@
   };
   </script>
   
-  <style>
-  /* Add specific styles for the Home component */
-  </style>
-  

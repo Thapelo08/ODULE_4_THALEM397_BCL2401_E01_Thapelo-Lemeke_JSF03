@@ -61,7 +61,4 @@
   };
   </script>
   
-  <style>
-  /* Add specific styles for the ProductGrid component */
-  </style>
-  
+ 
