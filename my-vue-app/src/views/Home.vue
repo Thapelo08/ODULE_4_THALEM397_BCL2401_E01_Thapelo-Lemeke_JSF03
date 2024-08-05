@@ -1,4 +1,3 @@
-import
 <template>
   
     <div class="container mx-auto p-6">
@@ -40,8 +39,8 @@ import
   
   <script>
   import { ref, onMounted, computed } from 'vue';
-  import Loading from './components/Loading.vue';
-  import ProductGrid from './components/ProductGrid.vue';
+  import Loading from '../components/Loading.vue';
+  import ProductGrid from '../components/ProductGrid.vue';
   
   export default {
     components: {
