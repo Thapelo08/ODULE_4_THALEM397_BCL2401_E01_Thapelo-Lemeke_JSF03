@@ -1,7 +1,11 @@
 <template>
     <nav class="fixed w-full bg-pink-600 p-4 text-pink-50 shadow-lg">
       <div class="container mx-auto flex justify-between items-center">
-        <div class="text-lg font-bold">SwiftCart</div>
+        <!-- Brand name -->
+        <a class="text-lg font-bold"
+         href="#"
+        >SwiftCart</a>
+        <!-- Navigation links for larger screens -->
         <div class="hidden md:flex">
           <a href="/" class="mr-4 hover:underline">wishlist</a>
           <a href="./" class="mr-4 hover:underline">cart</a>
@@ -41,6 +45,7 @@
           </a>
           <a href="./" class="hover:underline">Login</a>
         </div>
+        <!-- Menu toggle button for smaller screens -->
         <button @click="toggleMenu" class="md:hidden text-white">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -58,9 +63,10 @@
           </svg>
         </button>
       </div>
+      <!-- Mobile menu for smaller screens -->
       <div v-if="open" class="md:hidden mt-4 bg-pink-500">
         <a href="/" class="block p-2 hover:bg-pink-400">wishlist</a>
-        <a href="./" class="block p-2 hover:bg-pink-400"></a>
+        <a href="./" class="block p-2 hover:bg-pink-400">cart</a>
         <a href="./" class="block p-2 hover:bg-pink-400">
           <svg
             width="32px"
@@ -103,13 +109,29 @@
   <script>
   import { ref } from 'vue';
   
+  /**
+   * @fileoverview The Navbar component provides the navigation bar for the application.
+   * It includes links for navigation and a responsive menu that toggles visibility on smaller screens.
+   */
+  
   export default {
+    /**
+     * The name of the component.
+     * @type {string}
+     */
     name: 'Navbar',
+  
     setup() {
-      // Reactive state for menu open/close
+      /**
+       * Reactive state for menu visibility.
+       * @type {import('vue').Ref<boolean>}
+       */
       const open = ref(false);
   
-      // Toggle menu function
+      /**
+       * Toggles the visibility of the mobile menu.
+       * @function
+       */
       const toggleMenu = () => {
         open.value = !open.value;
       };
@@ -121,3 +143,4 @@
     },
   };
   </script>
+  
