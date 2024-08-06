@@ -42,45 +42,66 @@
   import { ref, onMounted } from 'vue';
   import { useRoute } from 'vue-router'; // Import vue-router to handle routing
   
+  /**
+   * @fileoverview This component displays a grid of products with options to view details, toggle favorites, and add to cart.
+   * It interacts with localStorage to persist favorite products.
+   */
+  
   export default {
     name: 'ProductList',
+  
+    /**
+     * Component properties.
+     * @type {Object}
+     * @property {Array} filteredProducts - Array of filtered product objects to display in the grid.
+     */
     props: {
       filteredProducts: {
         type: Array,
         required: true
       }
     },
+  
     setup(props) {
-      // Initialize an array to hold favorite product IDs
+      /**
+       * Reactive array to keep track of favorite product IDs.
+       * @type {import('vue').Ref<number[]>}
+       */
       const favorites = ref([]);
   
-      // Lifecycle function to run when the component mounts
+      /**
+       * Lifecycle hook that runs when the component is mounted.
+       * Retrieves the list of favorite product IDs from localStorage and initializes the favorites array.
+       */
       onMounted(() => {
-        // Retrieve favorites from localStorage
         const storedFavorites = localStorage.getItem('favorites');
         if (storedFavorites) {
-          // Parse and set the favorites array if data exists
           favorites.value = JSON.parse(storedFavorites);
         }
       });
   
-      // Function to toggle a product's favorite status
+      /**
+       * Toggles the favorite status of a product by adding or removing its ID from the favorites list.
+       * Updates the favorites list in localStorage.
+       * @param {number} productId - The ID of the product to toggle.
+       */
       const toggleFavorite = (productId) => {
         const index = favorites.value.indexOf(productId);
         if (index > -1) {
-          // Remove from favorites if already present
           favorites.value.splice(index, 1);
         } else {
-          // Add to favorites if not present
           favorites.value.push(productId);
         }
-        // Save the updated favorites list to localStorage
         localStorage.setItem('favorites', JSON.stringify(favorites.value));
       };
   
-      // Function to check if a product is in favorites
+      /**
+       * Checks if a product is in the favorites list.
+       * @param {number} productId - The ID of the product to check.
+       * @returns {boolean} - Returns true if the product is in the favorites list, otherwise false.
+       */
       const isFavorite = (productId) => {
-        return favorites.value.includes(productId); // Return true if the productId is in the favorites list
+        return favorites.value.includes(productId);
       };
   
       return {
@@ -91,6 +112,4 @@
     }
   };
   </script>
-  
-  
   
