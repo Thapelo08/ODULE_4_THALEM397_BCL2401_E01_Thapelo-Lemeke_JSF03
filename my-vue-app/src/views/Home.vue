@@ -1,5 +1,4 @@
 <template>
-  <!-- Main container for the page content -->
   <div class="container mx-auto p-6">
     <!-- Filters and sorting controls -->
     <div class="mt-20 flex justify-between items-center flex-wrap mb-4">
